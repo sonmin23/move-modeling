@@ -23,6 +23,7 @@ class Epsg(Enum):
     TM = 5174
     WGS = 4326
 
+
 class Coordinate():
 
     """
@@ -99,6 +100,7 @@ class Coordinate():
         
         result= self.transform.do_transform([local1])
         result = [element for array in result for element in array]
+        
         vwgs.append(result)
         # ...
 
@@ -122,6 +124,7 @@ class WgsTransform(Transform):
         transformer = Transformer.from_crs(Epsg.TM.value, Epsg.WGS.value, always_xy=True)
         wgs = [pt for pt in transformer.itransform(data)]
         wgs = np.round(wgs, 6)
+        print(wgs)
         return wgs
 
 class TmTransform(Transform):
@@ -144,32 +147,29 @@ if __name__ == "__main__":
     coordinate = Coordinate(WgsTransform())
     print("tm")
     for i in range(len(person)):    # 0부터 객체 person의 길이만큼 반복
-        coordinate.do_person(person[i].x1, person[i].y1)
+        coordinate.do_person(person[i].x1, person[i].y1) #좌표 변환
 
     for i in range(len(vehicle)):    # 0부터 객체 person의 길이만큼 반복
-        coordinate.do_vehicle(vehicle[i].x1, vehicle[i].y1)
+        coordinate.do_vehicle(vehicle[i].x1, vehicle[i].y1) #좌표 변환
 
-    lines = [[35.144610, 129.035568],
-    [35.146203, 129.036904]]
+    lines = [[35.144610, 129.035568], [35.146203, 129.036904]] #이동 범위
 
     center = [lwgs[i][1],lwgs[i][0]]
-    m = folium.Map(location=center, zoom_start=10)
+    m = folium.Map(location=center, zoom_start=500)
 
-    folium.Rectangle(
-        bounds = lines,
+    folium.Rectangle( #사각형으로 표시
+        bounds = lines, #이동범위
         tooltip = 'Rectangle',
         color = "yellow"
     ).add_to(m)
 
-    print([lwgs[0][1], lwgs[1][0]])
-    for i in range(len(lwgs)):
-        
+    for i in range(len(lwgs)): #lwgs-> 작업자 WGS 이동 정보
         folium.Circle(
-            location = [lwgs[i][1],lwgs[i][0]],
+            location = [lwgs[i][1],lwgs[i][0]], 
             radius = 0.01
         ).add_to(m)
-    for i in range(len(vwgs)):
-        
+
+    for i in range(len(vwgs)): #Vwgs-> 이동수단 WGS 이동 정보
         folium.Circle(
             location = [vwgs[i][1],vwgs[i][0]],
             radius = 0.01,

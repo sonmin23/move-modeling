@@ -181,9 +181,11 @@ def pystart():
 
             print(person_cnt,len(person),vehicle_cnt,len(vehicle))
             if(person_cnt==len(person)-num[0] and vehicle_cnt==len(vehicle)-num[1]):  # 전부 출력했을 경우 종료
-                print("끝")
-                pygame.time.delay(10000000)
-                done=True     
+                while not done:
+                    for event in pygame.event.get():# User did something
+                        if event.type == pygame.QUIT:# If user clicked close
+                            print("끝")
+                            done=True  
 
             pygame.draw.rect(screen, (0,0,255), (note2[0],note2[1],note2[2],note2[3]),1)
             pygame.display.update()
@@ -211,9 +213,9 @@ def start():
     for i in range(num[1]):
         vi += 1 # 이동장비의 ID
         x1,y1,x2,y2=Move.location_assign() # 이동장비의 loc1, loc2 값
-        speed2=random.uniform(8.33333,13.8889) # speed2 -> 이동장비의 이동 속도
+        speed2=random.uniform(2.77778,8.33333) # speed2 -> 이동장비의 이동 속도
         v=Vehicle('v'+str(vi),time,x1,y1,speed2,x2,y2) # 이동장비 객체 생성
         vehicle.append(v) # vehicle에 생성한 객체를 추가(list 형식)
         v.location() # 초당 이동 거리에 대한 메소드
     in_output.output() # 작업자, 이동장비 값 출력
-    return person, vehicle;
+    return person, vehicle
