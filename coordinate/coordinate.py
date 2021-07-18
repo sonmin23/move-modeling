@@ -1,5 +1,6 @@
 import random
 from math import *
+from enum import Enum
 import math
 import pygame # 1. pygame 선언
 
@@ -9,6 +10,10 @@ note=list()
 field=list()
 num=list()
 pygame.init() # 2. pygame 초기화
+
+class Point(Enum):
+    Y = 14.508216601563618  # 0,0 기준 y값
+    C = 103.16860620910302
 
 class Move: 
     """
@@ -32,7 +37,7 @@ class Move:
         랜덤 값으로 정해줌.
         """
         global field
-        field=[0, 2.953922261716798,385554.5004668975-385436.34396850807, 184904.913774751-184725.65200131526-2.953922261716798]  # 지도 상의 (x1,y1), (x2,y2) -> 이동 가능 구역  
+        field=[0, Point.C.value, Point.Y.value, 0]  # 지도 상의 (x1,y1), (x2,y2) -> 이동 가능 구역  
 
         while True:
             x1=random.uniform(field[0],field[2]+1)
@@ -131,19 +136,25 @@ class InputOut():   # 입출력 클래스
                     vehicle_cnt+=1
             time+=1   
             if(person_cnt==len(person) and vehicle_cnt==len(vehicle)):  # 전부 출력했을 경우 종료
-                break    
+                break  
+def to_pygame(coords, height):
+    """Convert coordinates into pygame coordinates (lower-left => top left)."""
+    return coords[0], height - coords[1]
 def pystart():
         # 3. pygame에 사용되는 전역변수 선언
 
     WHITE = (255, 255, 255)
     size = [400, 400]
     screen = pygame.display.set_mode(size)
+    background = pygame.image.load('back3.png')
+    mg_scale = pygame.transform.scale(background, (400, 400))
 
     done = False
     clock = pygame.time.Clock()
 
     # 4. pygame 무한루프
     def runGame():
+
         person_cnt = 0
         vehicle_cnt = 0    
         time=1
@@ -153,8 +164,9 @@ def pystart():
         global done
         done = False
         while not done:
+        
             clock.tick(10)
-            screen.fill(WHITE)
+            screen.blit(mg_scale, (0, 0))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -167,17 +179,19 @@ def pystart():
                 if time > len(person):
                     break            
                 if time == person[i].time:
-                    pos.append([person[i].x1,person[i].y1,(0,0,255)])   #파랑
+                    x,y = to_pygame([person[i].x1,person[i].y1],Point.C.value)
+                    pos.append([x*3,y*3,(0,0,255)])   #파랑
                     person_cnt+=1
             for i in range(len(vehicle)):
                 if time > len(vehicle):
                     break
                 if time == vehicle[i].time:
-                    pos.append([vehicle[i].x1,vehicle[i].y1,(255,0,0)]) #빨강
+                    x, y = to_pygame([vehicle[i].x1,vehicle[i].y1],Point.C.value)
+                    pos.append([x*3, y*3,(255,0,0)]) #빨강
                     vehicle_cnt+=1
 
             for p in pos:
-                pygame.draw.circle(screen, p[2], (p[0],p[1]),1)         
+                pygame.draw.circle(screen, p[2], (p[0],p[1]),2)         
 
             print(person_cnt,len(person),vehicle_cnt,len(vehicle))
             if(person_cnt==len(person)-num[0] and vehicle_cnt==len(vehicle)-num[1]):  # 전부 출력했을 경우 종료
@@ -187,7 +201,7 @@ def pystart():
                             print("끝")
                             done=True  
 
-            pygame.draw.rect(screen, (0,0,255), (note2[0],note2[1],note2[2],note2[3]),1)
+            pygame.draw.rect(screen, (0,0,255), (note2[0]*3,note2[1]*3,note2[2]*3,note2[3]*3),2)
             pygame.display.update()
             time+=1
 
