@@ -10,7 +10,7 @@ note=list()
 field=list()
 num=list()
 pygame.init() # 2. pygame 초기화
-
+step=1
 class Point(Enum):
     Y = 14.508216601563618  # 0,0 기준 y값
     C = 103.16860620910302
@@ -80,7 +80,7 @@ class Person(Move):
             radian = math.atan2(loc2[1]-loc1[1], loc2[0]-loc1[0])
             loc1[0] = loc2[0] - r * math.cos(radian)
             loc1[1] = loc2[1] - r * math.sin(radian)
-            time += 1
+            time += step
 
             if loc1> loc2:
                 loc1 = loc2
@@ -106,7 +106,7 @@ class Vehicle(Move):
             radian = math.atan2(loc2[1]-loc1[1], loc2[0]-loc1[0])   # 역 탄젠트 계산을 통해 radian을 구한다
             loc1[0] = loc2[0] - r * math.cos(radian)
             loc1[1] = loc2[1] - r * math.sin(radian)
-            time += 1
+            time += step
             if loc1> loc2:
                 loc1 = loc2
                 vehicle.append(Vehicle(self.name, time, loc1[0],loc1[1], self.speed, loc2[0], loc2[1]))
@@ -134,7 +134,7 @@ class InputOut():   # 입출력 클래스
                 if time == vehicle[i].time:
                     print(vehicle[i].name, vehicle[i].time, vehicle[i].x1, vehicle[i].y1)
                     vehicle_cnt+=1
-            time+=1   
+            time+=step   
             if(person_cnt==len(person) and vehicle_cnt==len(vehicle)):  # 전부 출력했을 경우 종료
                 break  
 def to_pygame(coords, height):
@@ -203,7 +203,7 @@ def pystart():
 
             pygame.draw.rect(screen, (0,0,255), (note2[0]*3,note2[1]*3,note2[2]*3,note2[3]*3),2)
             pygame.display.update()
-            time+=1
+            time+=step
 
     runGame()
     pygame.quit()
