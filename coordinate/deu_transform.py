@@ -5,7 +5,7 @@ from enum import Enum
 from pyproj import Transformer
 import numpy as np
 import folium
-import coordinate as cor
+import deu_coordinate as cor
 
 person=list()   #작업자 리스트
 vehicle=list()  #이동장비 리스트
@@ -155,10 +155,10 @@ class View():
         coordinate = Coordinate(WgsTransform())
         print("WGS 값 출력")
         for i in range(len(person)):    # 0부터 객체 person의 길이만큼 반복
-            coordinate.do_person(person[i][2], person[i][3]) #좌표 변환
+            coordinate.do_person(person[i].x1, person[i].y1)  #좌표 변환
 
         for i in range(len(vehicle)):    # 0부터 객체 person의 길이만큼 반복
-            coordinate.do_vehicle(vehicle[i][2], vehicle[i][3]) #좌표 변환
+            coordinate.do_vehicle(vehicle[i].x1, vehicle[i].y1) #좌표 변환
 
     def py_view(self):
         cor.pystart()

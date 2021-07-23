@@ -3,7 +3,7 @@ from math import *
 from enum import Enum
 import math
 import pygame # 1. pygame 선언
-import transform as tr
+import deu_transform as tr
 person=list()   #작업자 리스트
 vehicle=list()  #이동장비 리스트
 note=list()
@@ -13,7 +13,7 @@ pygame.init() # 2. pygame 초기화
 step=1
 
 class Point(Enum):
-    VIEWSIZE = 3
+    VIEWSIZE = 1
 
 class Move: 
     """
@@ -136,7 +136,7 @@ def pystart():
     size = [400, 400]
     screen = pygame.display.set_mode(size)
     background = pygame.image.load('back3.png')
-    mg_scale = pygame.transform.scale(background, (400, 400))
+    mg_scale = pygame.transform.scale(background, (400*Point.VIEWSIZE.value, 400*Point.VIEWSIZE.value))
     clock = pygame.time.Clock()
 
     # 4. pygame 무한루프
@@ -195,69 +195,6 @@ def pystart():
     runGame()
     pygame.quit()
 
-def pyrun(person,vehicle,tmfield):
-        # 3. pygame에 사용되는 전역변수 선언
-    print("pystart")
-    size = [400, 400]
-    screen = pygame.display.set_mode(size)
-    background = pygame.image.load('back3.png')
-    mg_scale = pygame.transform.scale(background, (400, 400))
-    clock = pygame.time.Clock()
-
-    # 4. pygame 무한루프
-    def runGame():
-        person_cnt = 0
-        vehicle_cnt = 0    
-        time=1
-        pos=[]
-        # field=[0, Point.C.value, Point.Y.value, 0]  # 지도 상의 (x1,y1), (x2,y2) -> 이동 가능 구역  
-        note2=[0,0,tmfield[2],tmfield[1]]
-
-        global done
-        done = False
-        while not done:
-        
-            clock.tick(10)
-            screen.blit(mg_scale, (0, 0))
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    done=True
-
-            ############################
-            # 여기에 도형을 그리세요 
-            ############################
-            for i in range(len(person)):
-                if time > len(person):
-                    break            
-                if time == person[i][0]:
-                    x,y = turn_angle([person[i][2],person[i][3]],tmfield[1])
-                    pos.append([x*Point.VIEWSIZE.value,y*Point.VIEWSIZE.value,(0,0,255)])   #파랑
-                    person_cnt+=1
-            for i in range(len(vehicle)):
-                if time > len(vehicle):
-                    break
-                if time == vehicle[i][0]:
-                    x, y = turn_angle([vehicle[i][2],vehicle[i][3]],tmfield[1])
-                    pos.append([x*Point.VIEWSIZE.value, y*Point.VIEWSIZE.value,(255,0,0)]) #빨강
-                    vehicle_cnt+=1
-
-            for p in pos:
-                pygame.draw.circle(screen, p[2], (p[0],p[1]),2)         
-
-            print(person_cnt,len(person),vehicle_cnt,len(vehicle))
-            if(person_cnt==len(person)-tmfield[4] and vehicle_cnt==len(vehicle)-tmfield[5]):  # 전부 출력했을 경우 종료
-                while not done:
-                    for event in pygame.event.get():# User did something
-                        if event.type == pygame.QUIT:# If user clicked close
-                            print("끝")
-                            done=True            
-            time+=step
-            pygame.draw.rect(screen, (0,0,255), (note2[0]*Point.VIEWSIZE.value,note2[1]*Point.VIEWSIZE.value,note2[2]*Point.VIEWSIZE.value,note2[3]*Point.VIEWSIZE.value),2)
-            pygame.display.update()
-
-    runGame()
-    pygame.quit()
 
 def run(tmfield):
     """
@@ -292,9 +229,13 @@ def run(tmfield):
         v.location() # 초당 이동 거리에 대한 메소드
 
     in_output.output() # 작업자, 이동장비 값 출력
+    view = tr.View()
+    view.wgs_view(person,vehicle)
+    view.map_view()
     return person, vehicle, num
 
-def tmgo():
+def tmgo():     # field 리턴
     return field
-def stepgo():
+
+def stepgo():   # step 리턴
     return step
