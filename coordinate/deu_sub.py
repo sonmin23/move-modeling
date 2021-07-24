@@ -1,4 +1,5 @@
 import ast
+from enum import Flag
 from paho.mqtt import client as mqtt_client
 import re
 import pygame
@@ -13,7 +14,7 @@ vehicle = list()
 field=list()
 pos=list()
 VIEWSIZE = 1
-
+flag = 0
 def connect_mqtt() -> mqtt_client:
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
@@ -33,6 +34,7 @@ def subscribe(client: mqtt_client):
         global vehicle
         global pos
         global start
+        global flag
         print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
         if msg.payload.decode().find('person:')==0:
             st = re.search('person:((.*))', msg.payload.decode()).group(1)  # person:을 가지고 있는 메세지 확인
@@ -48,6 +50,8 @@ def subscribe(client: mqtt_client):
             st = re.search('field:((.*))', msg.payload.decode()).group(1)
             st = ast.literal_eval(st)
             field=st
+        elif msg.payload.decode().find('finish') == 0:
+            flag = 1
         client.loop_stop()
         subrun()
     client.subscribe(topic)
@@ -60,7 +64,6 @@ def subrun():
     screen = pygame.display.set_mode(size)
     background = pygame.image.load('back3.png')
     mg_scale = pygame.transform.scale(background, (400*VIEWSIZE, 400*VIEWSIZE))
-    print("pystart")
     clock = pygame.time.Clock()
 
     # 4. pygame 무한루프
@@ -89,11 +92,17 @@ def subrun():
             screen.blit(mg_scale, (0, 0))           # 좌표 0,0에 배경 그리기     
 
             for p in pos:                           # 좌표 시각화
-                pygame.draw.circle(screen, p[2], (p[0]*VIEWSIZE,p[1]*VIEWSIZE),2)   
-
+                pygame.draw.circle(screen, p[2], (p[0]*VIEWSIZE,p[1]*VIEWSIZE),2)  
             done=True
             pygame.draw.rect(screen, (0,0,255), (0,0,field[2]*VIEWSIZE,field[1]*VIEWSIZE),2)    # 이동 범위 그리기
             pygame.display.update()
+
+            if flag == 1:                           # finish를 받았을 경우 flag == 1 # 종료를 하기 위해
+                while done:
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT: # X을 눌렀을 경우
+                            pygame.quit()
+                            quit()
 
     runGame()
 

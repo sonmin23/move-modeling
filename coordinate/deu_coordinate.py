@@ -4,13 +4,14 @@ from enum import Enum
 import math
 import pygame # 1. pygame 선언
 import deu_transform as tr
+from decimal import *
 person=list()   #작업자 리스트
 vehicle=list()  #이동장비 리스트
 note=list()
 field=list()
 num=list()
 pygame.init() # 2. pygame 초기화
-step=1
+step=0.5
 
 class Point(Enum):
     VIEWSIZE = 1
@@ -70,7 +71,8 @@ class Person(Move):
             radian = math.atan2(loc2[1]-loc1[1], loc2[0]-loc1[0])
             loc1[0] = loc2[0] - r * math.cos(radian)
             loc1[1] = loc2[1] - r * math.sin(radian)
-            time += step
+            time = time + step
+            time = round(time, 6)
             if loc1> loc2:
                 loc1 = loc2
                 person.append(Person(self.name, time, loc1[0],loc1[1], self.speed, loc2[0], loc2[1]))
@@ -95,7 +97,8 @@ class Vehicle(Move):
             radian = math.atan2(loc2[1]-loc1[1], loc2[0]-loc1[0])   # 역 탄젠트 계산을 통해 radian을 구한다
             loc1[0] = loc2[0] - r * math.cos(radian)
             loc1[1] = loc2[1] - r * math.sin(radian)
-            time += step
+            time = time + step
+            time = round(time, 6)
             if loc1> loc2:
                 loc1 = loc2
                 vehicle.append(Vehicle(self.name, time, loc1[0],loc1[1], self.speed, loc2[0], loc2[1]))
@@ -123,6 +126,7 @@ class InputOut():   # 입출력 클래스
                     print(vehicle[i].name, vehicle[i].time, vehicle[i].x1, vehicle[i].y1)
                     vehicle_cnt+=1
             time+=step   
+            time = round(time, 6)
             if(person_cnt==len(person) and vehicle_cnt==len(vehicle)):  # 전부 출력했을 경우 종료
                 break  
 

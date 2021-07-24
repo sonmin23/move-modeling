@@ -58,6 +58,8 @@ def run():
     global vehicle  # 이동수단
     global num      # 작업자, 이동수단 입력 수 
     global field    # 이동범위
+    person_cnt = 0
+    vehicle_cnt = 0
 
     for i in range(len(username)):  
         num = person = vehicle = [] # 변수 초기화
@@ -67,7 +69,6 @@ def run():
 
         real_time=0            # pub 할 때 보내는 시간
         step=cor.stepgo()      # step 반환
-
         transform = tr.Coordinate(tr.TmTransform()) # WGS -> TM
         transform.do_move_transform()               # loop 정기적 호출
         person,vehicle,num = cor.run(tr.field)      # deu_coordinate -> 작업자, 이동장비 생성 후 -> map 출력
@@ -79,20 +80,28 @@ def run():
 
         while True:
             start=time.perf_counter()              # 코드 실행 시간
-
+                       
             for k in range(len(person)):           # person 발행
                 if real_time == person[k].time:
                     person_publish(client,k)
+                    person_cnt +=1
 
             for k in range(len(vehicle)):           # vehicle 발행
                 if real_time == vehicle[k].time:
                     vehicle_publish(client,k)
+                    vehicle_cnt +=1
 
-            real_time+=step                         # pub 할 때 보내는 시간
-            delay_time=step-(time.perf_counter()-start)  # delay_time -> 
-                                                         # pub할 때 원하는 delay 시간 = 코드 실행 시간 - 시작 시간
-            # print("time :", a, " perf_counter :",b) 테스트용// 나중에 변수 a 이걸로 수정 step-(time.perf_counter()-start)
+            if(person_cnt>=len(person)-1 and vehicle_cnt>=len(vehicle)-1):  # 전부 출력했을 경우 종료
+                msg = f"finish"
+                client.publish(topic,msg)
+                quit()
+
+            real_time+=step                              # pub 할 때 보내는 시간
+            test_time=time.perf_counter()-start
+            delay_time=step-test_time  # delay_time -> 
+            # print("all time:", delay_time+test_time)      # pub할 때 원하는 delay 시간 = 코드 실행 시간 - 시작 시간
+            # print("time :", delay_time, " perf_counter :",test_time) #테스트용
             time.sleep(delay_time)
-        
+                       
 if __name__ == '__main__':
     run()
