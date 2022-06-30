@@ -1,0 +1,6 @@
+{"data":{"hoist_pos":"1979","spreader_size":"20","trolley_pos":"1721","time":"2022-01-25T02:16:42.449","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1979","spreader_size":"20","trolley_pos":"1721","time":"2022-01-25T02:16:45.459","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1979","spreader_size":"20","trolley_pos":"1721","time":"2022-01-25T02:16:46.262","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1979","spreader_size":"20","trolley_pos":"1721","time":"2022-01-25T02:16:48.469","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1979","spreader_size":"20","trolley_pos":"1721","time":"2022-01-25T02:16:49.271","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1979","spreader_size":"20","trolley_pos":"1721","time":"2022-01-25T02:16:52.278","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}

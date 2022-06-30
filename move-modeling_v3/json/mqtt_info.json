@@ -1,0 +1,3 @@
+{
+    "mqtt_info" : {"name" : [["location_KNUT",0],["Location",0],["wearable_location",0],["location_16",0],["wearable_location_16",0],["qc_spreader_16",0],["tc_spreader_16",0],["admin",0]], "port": 9884, "id" : ["user10","user12","user10","user10","user16","user16","user16","user1"], "pw" : ["user10","user12","user10","user10","user16","user16","user16","user1"]}
+}

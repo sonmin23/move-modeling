@@ -1,0 +1,12 @@
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:52:54.276","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:52:56.083","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:52:57.284","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:52:58.193","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:52:59.095","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:53:00.293","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:53:01.202","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:53:02.097","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:53:03.299","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:53:04.210","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:53:05.105","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}
+{"data":{"hoist_pos":"1470","spreader_size":"20","trolley_pos":"1118","time":"2022-01-25T02:53:06.015","spreader_lock":"U","dev_id":"krisoqc0005","equ_no":"CC105"},"message_id":"qc_spreader"}

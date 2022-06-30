@@ -1,0 +1,13 @@
+{"data":{"latitude":35.101987,"velocity":4,"time":"2022-01-25T05:06:51.507","longitude":129.094956,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102003,"velocity":4,"time":"2022-01-25T05:06:52.008","longitude":129.09495,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102019,"velocity":4,"time":"2022-01-25T05:06:52.509","longitude":129.094945,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102035,"velocity":4,"time":"2022-01-25T05:06:53.009","longitude":129.094939,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102051,"velocity":4,"time":"2022-01-25T05:06:53.509","longitude":129.094934,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102068,"velocity":4,"time":"2022-01-25T05:06:54.009","longitude":129.094928,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102084,"velocity":4,"time":"2022-01-25T05:06:54.510","longitude":129.094923,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.1021,"velocity":4,"time":"2022-01-25T05:06:55.010","longitude":129.094917,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102116,"velocity":4,"time":"2022-01-25T05:06:55.511","longitude":129.094912,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102132,"velocity":4,"time":"2022-01-25T05:06:56.012","longitude":129.094906,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102149,"velocity":4,"time":"2022-01-25T05:06:56.512","longitude":129.0949,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102165,"velocity":4,"time":"2022-01-25T05:06:57.014","longitude":129.094895,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.102181,"velocity":4,"time":"2022-01-25T05:06:57.515","longitude":129.094889,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}

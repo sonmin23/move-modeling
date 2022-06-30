@@ -1,0 +1,17 @@
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:14.755","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:15.265","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:15.777","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:16.285","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:16.794","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:17.303","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:17.814","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:18.324","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:18.836","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:19.348","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:19.858","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:20.369","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:20.880","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:21.390","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:21.904","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.09927369055051,"velocity":4,"time":"2022-01-22T04:01:22.414","longitude":129.09482858521642,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
+{"data":{"latitude":35.099346421460744,"velocity":4,"time":"2022-01-22T04:01:22.683","longitude":129.09534356934728,"direction":127,"dev_id":"S01228454014","equ_no":"ETC001"},"message_id":"wearable_location"}
